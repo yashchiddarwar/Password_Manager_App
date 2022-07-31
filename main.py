@@ -6,7 +6,8 @@ from pandas import *
 import json
 
 FONT_NAME = "Courier"
-OPTIONS = ["chiddarwaryash99@gmail.com", "rememberyash99@gmail.com", "itsmeyash2909@gmail.com", "mranonymous43@protonmail.com"]
+#Enter your emails in the list for them to show in the dropdown menu!
+OPTIONS = []
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def pwd_gen():
@@ -74,8 +75,6 @@ def search_data():
     with open("datatext.json","r") as file:
         check_data = json.load(file)
         if search_key in check_data:
-            # print(check_data[search_key]["email"])
-            # print(check_data[search_key]["password"])
             new_alert = mb.showinfo("Login details",f"Username: {check_data[search_key]['email']}\nPassword: {check_data[search_key]['password']}")
         else:
             mb.showerror("Website entry not found.","Entered website has no passwords in the database!")
@@ -92,8 +91,6 @@ canvas.grid(row=0, column=1)
 website = Label(width=10, height=1, text="Website:", font=(FONT_NAME, 10))
 website.grid(row=1, column=0)
 
-
-
 username = Label(width=20, height=1, text="Email/Username:", font=(FONT_NAME, 10))
 username.grid(row=2, column=0)
 
@@ -107,8 +104,6 @@ webentry.focus()
 search = Button(width=23, height=1, text="Search", font=(FONT_NAME, 10),command=search_data)
 search.grid(row=1, column=2, columnspan=2)
 
-# usernameentry = Entry(width=65)
-# usernameentry.grid(row=2, column=1, columnspan=2)
 variable = StringVar(window)
 variable.set(OPTIONS[0])
 usernameentry = OptionMenu(window, variable, *OPTIONS)
