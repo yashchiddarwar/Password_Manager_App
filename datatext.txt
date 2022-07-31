@@ -1,6 +1,0 @@
-{
-    "Ebay": {
-        "email": "asdsa",
-        "password": "2WqjJd&l"
-    }
-}
